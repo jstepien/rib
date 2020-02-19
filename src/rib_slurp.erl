@@ -12,7 +12,7 @@ slurp_response({{_, _, _}, Headers, Body}) ->
                   _ -> Body
               end,
     case hd(binary:split(content_type(Headers), <<";">>)) of
-        <<"application/json">> -> jiffy:decode(Decoded, [])
+        <<"application/json">> -> jiffy:decode(Decoded, [return_maps])
     end.
 
 %% Implementation

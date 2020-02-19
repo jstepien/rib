@@ -9,12 +9,12 @@ slurp_response_test_() ->
                [{"Content-type", "application/json"},
                 {"Content-Encoding", "gzip"}],
                zlib:gzip(<<"{\"foo\":[1,2,3]}">>)},
-              {[{<<"foo">>, [1, 2, 3]}]}},
+              #{<<"foo">> => [1, 2, 3]}},
 
              {{status(),
                [{"Content-Type", "application/json;charset=UTF-8"}],
                <<"{\"foo\":[1,2,3]}">>},
-              {[{<<"foo">>, [1, 2, 3]}]}},
+              #{<<"foo">> => [1, 2, 3]}},
 
             {{status(),
               [{"Content-Type", "application/json;charset=UTF-8"}],

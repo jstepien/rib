@@ -24,7 +24,7 @@ start_link() ->
 
 init([]) ->
     {ok, Port} = application:get_env(rib, port),
-    AuthConfig = [{auth_fun, fun rib_callback:auth_fun/3}],
+    AuthConfig = [{auth_fun, fun rib_callback:auth_fun/2}],
     CallbackArgs = [{mods, [{elli_basicauth, AuthConfig},
                             {rib_callback, []}]}],
     ElliOpts = [{callback, elli_middleware},
